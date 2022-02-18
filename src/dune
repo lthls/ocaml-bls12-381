@@ -74,12 +74,17 @@
  (instrumentation
   (backend bisect_ppx))
  (private_modules fq fq2 fft)
- (libraries ff-sig hex integers integers_stubs_js zarith zarith_stubs_js)
+ ; FIXME
+ ; JS not supported on multicore. Deactivating it for the moment
+ ; (libraries ff-sig hex integers integers_stubs_js zarith zarith_stubs_js)
+ (libraries ff-sig hex integers zarith)
  (library_flags :standard -linkall -ccopt -lpthread)
  (foreign_archives blst)
- (js_of_ocaml
-  (javascript_files runtime_helper.js blst_bindings_stubs.js
-    caml_poseidon128_stubs.js caml_rescue_stubs.js caml_fft_stubs.js))
+ ; FIXME
+ ; JS not supported on multicore. Deactivating it for the moment
+ ; (js_of_ocaml
+ ;  (javascript_files runtime_helper.js blst_bindings_stubs.js
+ ;    caml_poseidon128_stubs.js caml_rescue_stubs.js caml_fft_stubs.js))
  (foreign_stubs
   (language c)
   ;; For pippenger binding, avoid warnings related to const usage

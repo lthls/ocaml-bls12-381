@@ -104,7 +104,7 @@ lint-c:
     - dune build
     - dune build @install
     - dune build @runtest
-    - dune build @runtest-js
+    # - dune build @runtest-js
   rules:
     - when: always
 
